@@ -27,8 +27,8 @@ import {
 
 This package publishes a narrowed surface of **4** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                                  | Kind      | Notes              |
-| --------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                                | Kind      | Notes              |
+| ------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
 | [`createFtpsProviderFactory`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/functions/createFtpsProviderFactory.md) | Function  | See API reference. |
 | [`FtpsProviderOptions`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/FtpsProviderOptions.md)            | Interface | See API reference. |
 | [`FtpsMode`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/type-aliases/FtpsMode.md)                                | Type      | See API reference. |
@@ -36,8 +36,8 @@ This package publishes a narrowed surface of **4** exports. These symbols are al
 
 ## Examples
 
-| Example                                                                                                                            | What it shows                                                          |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| Example                                                                                                                          | What it shows                                                          |
+| -------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
 | [`examples/ftps-client-certificate.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/ftps-client-certificate.ts) | FTPS client-certificate (mutual TLS) example with certificate pinning. |
 | [`examples/ftps-directory-ops.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/ftps-directory-ops.ts)           | FTPS directory operations: list, stat, mkdir, rename, remove, rmdir.   |
 

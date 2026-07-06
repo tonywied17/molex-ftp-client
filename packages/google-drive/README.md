@@ -27,15 +27,15 @@ import {
 
 This package publishes a narrowed surface of **2** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                                                | Kind      | Notes              |
-| ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                                              | Kind      | Notes              |
+| --------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
 | [`createGoogleDriveProviderFactory`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/functions/createGoogleDriveProviderFactory.md) | Function  | See API reference. |
 | [`GoogleDriveProviderOptions`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/GoogleDriveProviderOptions.md)            | Interface | See API reference. |
 
 ## Examples
 
-| Example                                                                                                                                | What it shows                       |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------- |
+| Example                                                                                                                              | What it shows                       |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
 | [`examples/multi-cloud-orchestration.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/multi-cloud-orchestration.ts) | Multi-cloud orchestration showcase. |
 
 ## Documentation

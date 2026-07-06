@@ -27,8 +27,8 @@ import {
 
 This package publishes a narrowed surface of **8** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                                                    | Kind      | Notes              |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                                                  | Kind      | Notes              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
 | [`createS3ProviderFactory`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/functions/createS3ProviderFactory.md)                       | Function  | See API reference. |
 | [`createMemoryS3MultipartResumeStore`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/functions/createMemoryS3MultipartResumeStore.md) | Function  | See API reference. |
 | [`S3ProviderOptions`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/S3ProviderOptions.md)                                  | Interface | See API reference. |
@@ -40,8 +40,8 @@ This package publishes a narrowed surface of **8** exports. These symbols are al
 
 ## Examples
 
-| Example                                                                                                                                | What it shows                                    |
-| -------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------ |
+| Example                                                                                                                              | What it shows                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------ |
 | [`examples/s3-compatible-upload.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/s3-compatible-upload.ts)           | S3-compatible parallel multipart upload example. |
 | [`examples/multi-cloud-orchestration.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/multi-cloud-orchestration.ts) | Multi-cloud orchestration showcase.              |
 

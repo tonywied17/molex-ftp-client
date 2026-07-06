@@ -27,8 +27,8 @@ import {
 
 This package publishes a narrowed surface of **2** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                                        | Kind      | Notes              |
-| --------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                                      | Kind      | Notes              |
+| ------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
 | [`createDropboxProviderFactory`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/functions/createDropboxProviderFactory.md) | Function  | See API reference. |
 | [`DropboxProviderOptions`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/DropboxProviderOptions.md)            | Interface | See API reference. |
 

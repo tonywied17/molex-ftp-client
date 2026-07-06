@@ -27,15 +27,15 @@ import {
 
 This package publishes a narrowed surface of **2** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                                      | Kind      | Notes              |
-| ------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                                    | Kind      | Notes              |
+| ----------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
 | [`createWebDavProviderFactory`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/functions/createWebDavProviderFactory.md) | Function  | See API reference. |
 | [`WebDavProviderOptions`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/WebDavProviderOptions.md)            | Interface | See API reference. |
 
 ## Examples
 
-| Example                                                                                                    | What it shows                      |
-| ---------------------------------------------------------------------------------------------------------- | ---------------------------------- |
+| Example                                                                                                  | What it shows                      |
+| -------------------------------------------------------------------------------------------------------- | ---------------------------------- |
 | [`examples/webdav-sync.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/webdav-sync.ts) | WebDAV bidirectional sync example. |
 
 ## Documentation

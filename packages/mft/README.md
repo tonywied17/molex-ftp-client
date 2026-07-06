@@ -22,8 +22,8 @@ import { MftRoute, RouteRegistry, runRoute } from "@zero-transfer/mft";
 
 This package publishes a narrowed surface of **31** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                          | Kind      | Notes              |
-| ------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                        | Kind      | Notes              |
+| ----------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
 | [`MftRoute`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/MftRoute.md)                          | Interface | See API reference. |
 | [`RouteRegistry`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/classes/RouteRegistry.md)                   | Class     | See API reference. |
 | [`runRoute`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/functions/runRoute.md)                           | Function  | See API reference. |
@@ -58,8 +58,8 @@ This package publishes a narrowed surface of **31** exports. These symbols are a
 
 ## Examples
 
-| Example                                                                                                                                    | What it shows                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| Example                                                                                                                                  | What it shows                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
 | [`examples/mft-route.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/mft-route.ts)                                     | Declarative MFT route + cron schedule.                  |
 | [`examples/approval-gated-route.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/approval-gated-route.ts)               | Approval gate for sensitive scheduled routes.           |
 | [`examples/atomic-deploy-with-rollback.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/atomic-deploy-with-rollback.ts) | Atomic blue/green-style deploy with rollback over SFTP. |

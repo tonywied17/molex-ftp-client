@@ -7,8 +7,8 @@ The repository ships with runnable end-to-end examples in [`examples/`](https://
 
 ## Connecting
 
-| File                                                                                                                      | What it shows                                                  |
-| ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| File                                                                                                                    | What it shows                                                  |
+| ----------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
 | [`sftp-basic.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/sftp-basic.ts)                           | Password-auth SFTP, list + download.                           |
 | [`sftp-private-key.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/sftp-private-key.ts)               | Public-key SFTP with `known_hosts` and host-key pinning.       |
 | [`ssh-exec-command.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/ssh-exec-command.ts)               | Standalone SSH transport: handshake, auth, exec, drain stdout. |
@@ -22,16 +22,16 @@ The repository ships with runnable end-to-end examples in [`examples/`](https://
 
 The provider-neutral `session.fs` surface (list, stat, mkdir, rename, remove, rmdir) is identical across protocols - these three show the same flow on each classic backend.
 
-| File                                                                                                            | What it shows                                                     |
-| --------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| File                                                                                                          | What it shows                                                     |
+| ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------- |
 | [`ftp-directory-ops.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/ftp-directory-ops.ts)   | Classic FTP commands (MLSD, MLST, RNFR/RNTO, …) as typed methods. |
 | [`ftps-directory-ops.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/ftps-directory-ops.ts) | Same surface over encrypted control + data channels.              |
 | [`sftp-directory-ops.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/sftp-directory-ops.ts) | Same surface backed by SSH file-attribute packets.                |
 
 ## Cloud providers
 
-| File                                                                                                                          | What it shows                                                                              |
-| ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| File                                                                                                                        | What it shows                                                                              |
+| --------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | [`s3-compatible-upload.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/s3-compatible-upload.ts)           | Parallel multipart upload to S3 (and any S3-compatible bucket) with resumable checkpoints. |
 | [`signed-url-download.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/signed-url-download.ts)             | Resolve an HTTP signed URL and stream it to disk.                                          |
 | [`webdav-sync.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/webdav-sync.ts)                             | One-way sync to a WebDAV server, with delete-policy.                                       |
@@ -39,8 +39,8 @@ The provider-neutral `session.fs` surface (list, stat, mkdir, rename, remove, rm
 
 ## Transfers, sync, MFT
 
-| File                                                                                                                              | What it shows                                                                                             |
-| --------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| File                                                                                                                            | What it shows                                                                                             |
+| ------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | [`local-copy-file.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/local-copy-file.ts)                         | Copy a file using the local filesystem provider.                                                          |
 | [`transfer-queue.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/transfer-queue.ts)                           | Bounded-concurrency queue with progress + retry.                                                          |
 | [`retry-and-timeouts.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/retry-and-timeouts.ts)                   | Retry policy, two-scope timeouts, stall watchdog, client-wide defaults - runs fully offline.              |

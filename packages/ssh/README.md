@@ -26,8 +26,8 @@ import {
 
 This package publishes a narrowed surface of **26** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                                                  | Kind      | Notes              |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                                                | Kind      | Notes              |
+| ----------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
 | [`SshTransportConnection`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/classes/SshTransportConnection.md)                         | Class     | See API reference. |
 | [`SshTransportConnectionOptions`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/SshTransportConnectionOptions.md)        | Interface | See API reference. |
 | [`SshTransportHandshake`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/classes/SshTransportHandshake.md)                           | Class     | See API reference. |
@@ -57,8 +57,8 @@ This package publishes a narrowed surface of **26** exports. These symbols are a
 
 ## Examples
 
-| Example                                                                                                              | What it shows                                                               |
-| -------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| Example                                                                                                            | What it shows                                                               |
+| ------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
 | [`examples/ssh-exec-command.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/ssh-exec-command.ts) | SSH remote command execution via the standalone `@zero-transfer/ssh` stack. |
 | [`examples/sftp-private-key.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/sftp-private-key.ts) | SFTP private-key authentication example with host-key pinning.              |
 

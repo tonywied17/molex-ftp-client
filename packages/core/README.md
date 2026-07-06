@@ -22,8 +22,8 @@ import { createLocalProviderFactory } from "@zero-transfer/core";
 
 This package publishes a narrowed surface of **97** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                                                         | Kind      | Notes              |
-| -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                                                       | Kind      | Notes              |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- | ------------------ |
 | [`TransferClient`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/classes/TransferClient.md)                                                | Class     | See API reference. |
 | [`TransferClientOptions`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/TransferClientOptions.md)                               | Interface | See API reference. |
 | [`TransferClientDefaults`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/TransferClientDefaults.md)                             | Interface | See API reference. |
@@ -124,8 +124,8 @@ This package publishes a narrowed surface of **97** exports. These symbols are a
 
 ## Examples
 
-| Example                                                                                                                    | What it shows                                                    |
-| -------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| Example                                                                                                                  | What it shows                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
 | [`examples/local-copy-file.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/local-copy-file.ts)         | Local-to-local file copy example.                                |
 | [`examples/ftp-basic.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/ftp-basic.ts)                     | Basic FTP upload + download example.                             |
 | [`examples/transfer-queue.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/transfer-queue.ts)           | Transfer queue with concurrency, progress, and per-job receipts. |

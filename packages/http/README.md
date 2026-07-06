@@ -27,16 +27,16 @@ import {
 
 This package publishes a narrowed surface of **3** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                                  | Kind      | Notes              |
-| --------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                                | Kind      | Notes              |
+| ------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
 | [`createHttpProviderFactory`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/functions/createHttpProviderFactory.md) | Function  | See API reference. |
 | [`HttpProviderOptions`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/HttpProviderOptions.md)            | Interface | See API reference. |
 | [`HttpFetch`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/type-aliases/HttpFetch.md)                              | Type      | See API reference. |
 
 ## Examples
 
-| Example                                                                                                                    | What it shows                     |
-| -------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| Example                                                                                                                  | What it shows                     |
+| ------------------------------------------------------------------------------------------------------------------------ | --------------------------------- |
 | [`examples/signed-url-download.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/signed-url-download.ts) | Signed-URL HTTP download example. |
 
 ## Documentation

@@ -27,8 +27,8 @@ import {
 
 This package publishes a narrowed surface of **8** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                                  | Kind      | Notes              |
-| --------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                                | Kind      | Notes              |
+| ------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
 | [`createSftpProviderFactory`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/functions/createSftpProviderFactory.md) | Function  | See API reference. |
 | [`SftpProviderOptions`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/SftpProviderOptions.md)            | Interface | See API reference. |
 | [`SftpRawSession`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/SftpRawSession.md)                      | Interface | See API reference. |
@@ -40,8 +40,8 @@ This package publishes a narrowed surface of **8** exports. These symbols are al
 
 ## Examples
 
-| Example                                                                                                                  | What it shows                                                        |
-| ------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------- |
+| Example                                                                                                                | What it shows                                                        |
+| ---------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | [`examples/sftp-private-key.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/sftp-private-key.ts)     | SFTP private-key authentication example with host-key pinning.       |
 | [`examples/sftp-directory-ops.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/sftp-directory-ops.ts) | SFTP directory operations: list, stat, mkdir, rename, remove, rmdir. |
 

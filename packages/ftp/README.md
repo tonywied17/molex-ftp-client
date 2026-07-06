@@ -27,8 +27,8 @@ import {
 
 This package publishes a narrowed surface of **14** exports. These symbols are also available from [`@zero-transfer/sdk`](https://www.npmjs.com/package/@zero-transfer/sdk); the table below links into the full API reference:
 
-| Symbol                                                                                                                                | Kind      | Notes              |
-| ------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
+| Symbol                                                                                                                              | Kind      | Notes              |
+| ----------------------------------------------------------------------------------------------------------------------------------- | --------- | ------------------ |
 | [`createFtpProviderFactory`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/functions/createFtpProviderFactory.md) | Function  | See API reference. |
 | [`FtpProviderOptions`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/interfaces/FtpProviderOptions.md)            | Interface | See API reference. |
 | [`FtpPassiveHostStrategy`](https://github.com/molexxxx/zero-transfer/blob/main/docs/api-md/type-aliases/FtpPassiveHostStrategy.md)  | Type      | See API reference. |
@@ -46,8 +46,8 @@ This package publishes a narrowed surface of **14** exports. These symbols are a
 
 ## Examples
 
-| Example                                                                                                                | What it shows                                                       |
-| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| Example                                                                                                              | What it shows                                                       |
+| -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
 | [`examples/ftp-basic.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/ftp-basic.ts)                 | Basic FTP upload + download example.                                |
 | [`examples/ftp-directory-ops.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/ftp-directory-ops.ts) | FTP directory operations: list, stat, mkdir, rename, remove, rmdir. |
 | [`examples/transfer-queue.ts`](https://github.com/molexxxx/zero-transfer/blob/main/examples/transfer-queue.ts)       | Transfer queue with concurrency, progress, and per-job receipts.    |
