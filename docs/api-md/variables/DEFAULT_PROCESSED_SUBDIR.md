@@ -10,6 +10,6 @@
 const DEFAULT_PROCESSED_SUBDIR: "processed" = "processed";
 ```
 
-Defined in: [src/mft/conventions.ts:18](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/mft/conventions.ts#L18)
+Defined in: [src/mft/conventions.ts:18](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/mft/conventions.ts#L18)
 
 Default subdirectory used to archive successfully processed inbox files.

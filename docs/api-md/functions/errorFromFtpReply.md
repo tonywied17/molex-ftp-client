@@ -10,7 +10,7 @@
 function errorFromFtpReply(input): ZeroTransferError;
 ```
 
-Defined in: [src/errors/errorFactory.ts:46](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/errors/errorFactory.ts#L46)
+Defined in: [src/errors/errorFactory.ts:46](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/errors/errorFactory.ts#L46)
 
 Maps an FTP reply into the closest typed ZeroTransfer error.
 

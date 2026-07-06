@@ -6,7 +6,7 @@
 
 # Class: SshDataWriter
 
-Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:10](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/protocols/ssh/binary/SshDataWriter.ts#L10)
+Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:10](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/protocols/ssh/binary/SshDataWriter.ts#L10)
 
 Minimal SSH primitive encoder for transport and authentication packets.
 
@@ -30,7 +30,7 @@ new SshDataWriter(): SshDataWriter;
 toBuffer(): Buffer;
 ```
 
-Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:83](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/protocols/ssh/binary/SshDataWriter.ts#L83)
+Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:83](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/protocols/ssh/binary/SshDataWriter.ts#L83)
 
 #### Returns
 
@@ -44,7 +44,7 @@ Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:83](https://github.com/mo
 writeBoolean(value): this;
 ```
 
-Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:21](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/protocols/ssh/binary/SshDataWriter.ts#L21)
+Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:21](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/protocols/ssh/binary/SshDataWriter.ts#L21)
 
 #### Parameters
 
@@ -64,7 +64,7 @@ Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:21](https://github.com/mo
 writeByte(value): this;
 ```
 
-Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:14](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/protocols/ssh/binary/SshDataWriter.ts#L14)
+Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:14](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/protocols/ssh/binary/SshDataWriter.ts#L14)
 
 #### Parameters
 
@@ -84,7 +84,7 @@ Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:14](https://github.com/mo
 writeBytes(value): this;
 ```
 
-Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:25](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/protocols/ssh/binary/SshDataWriter.ts#L25)
+Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:25](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/protocols/ssh/binary/SshDataWriter.ts#L25)
 
 #### Parameters
 
@@ -104,7 +104,7 @@ Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:25](https://github.com/mo
 writeMpint(value): this;
 ```
 
-Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:63](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/protocols/ssh/binary/SshDataWriter.ts#L63)
+Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:63](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/protocols/ssh/binary/SshDataWriter.ts#L63)
 
 #### Parameters
 
@@ -124,7 +124,7 @@ Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:63](https://github.com/mo
 writeNameList(values): this;
 ```
 
-Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:69](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/protocols/ssh/binary/SshDataWriter.ts#L69)
+Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:69](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/protocols/ssh/binary/SshDataWriter.ts#L69)
 
 #### Parameters
 
@@ -144,7 +144,7 @@ Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:69](https://github.com/mo
 writeString(value, encoding?): this;
 ```
 
-Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:57](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/protocols/ssh/binary/SshDataWriter.ts#L57)
+Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:57](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/protocols/ssh/binary/SshDataWriter.ts#L57)
 
 #### Parameters
 
@@ -165,7 +165,7 @@ Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:57](https://github.com/mo
 writeUint32(value): this;
 ```
 
-Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:29](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/protocols/ssh/binary/SshDataWriter.ts#L29)
+Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:29](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/protocols/ssh/binary/SshDataWriter.ts#L29)
 
 #### Parameters
 
@@ -185,7 +185,7 @@ Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:29](https://github.com/mo
 writeUint64(value): this;
 ```
 
-Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:43](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/protocols/ssh/binary/SshDataWriter.ts#L43)
+Defined in: [src/protocols/ssh/binary/SshDataWriter.ts:43](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/protocols/ssh/binary/SshDataWriter.ts#L43)
 
 #### Parameters
 

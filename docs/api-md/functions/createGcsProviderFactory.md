@@ -10,7 +10,7 @@
 function createGcsProviderFactory(options): ProviderFactory;
 ```
 
-Defined in: [src/providers/cloud/GcsProvider.ts:130](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/providers/cloud/GcsProvider.ts#L130)
+Defined in: [src/providers/cloud/GcsProvider.ts:130](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/providers/cloud/GcsProvider.ts#L130)
 
 Creates a Google Cloud Storage provider factory.
 

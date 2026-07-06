@@ -10,7 +10,7 @@
 function deserializeTransferPlan(text): TransferPlan;
 ```
 
-Defined in: [src/transfers/resumableBatch.ts:74](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/transfers/resumableBatch.ts#L74)
+Defined in: [src/transfers/resumableBatch.ts:74](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/transfers/resumableBatch.ts#L74)
 
 Parses a plan produced by [serializeTransferPlan](serializeTransferPlan.md).
 

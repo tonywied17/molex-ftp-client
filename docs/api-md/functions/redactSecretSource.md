@@ -10,7 +10,7 @@
 function redactSecretSource(source): unknown;
 ```
 
-Defined in: [src/profiles/SecretSource.ts:132](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/profiles/SecretSource.ts#L132)
+Defined in: [src/profiles/SecretSource.ts:132](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/profiles/SecretSource.ts#L132)
 
 Redacts a secret source or resolved secret for safe diagnostics.
 

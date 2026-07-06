@@ -10,7 +10,7 @@
 function createDefaultRetryPolicy(options?): TransferRetryPolicy;
 ```
 
-Defined in: [src/transfers/createDefaultRetryPolicy.ts:80](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/transfers/createDefaultRetryPolicy.ts#L80)
+Defined in: [src/transfers/createDefaultRetryPolicy.ts:80](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/transfers/createDefaultRetryPolicy.ts#L80)
 
 Creates the SDK's recommended retry policy for transfer execution.
 

@@ -6,7 +6,7 @@
 
 # Interface: EnvSecretSource
 
-Defined in: [src/profiles/SecretSource.ts:24](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/profiles/SecretSource.ts#L24)
+Defined in: [src/profiles/SecretSource.ts:24](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/profiles/SecretSource.ts#L24)
 
 Environment variable descriptor for text secrets.
 
@@ -14,4 +14,4 @@ Environment variable descriptor for text secrets.
 
 | Property | Type | Description | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="env"></a> `env` | `string` | Environment variable containing the secret. | [src/profiles/SecretSource.ts:26](https://github.com/molexxxx/zero-transfer/blob/483be946776ae5d15052263833efbd26b98c4f23/src/profiles/SecretSource.ts#L26) |
+| <a id="env"></a> `env` | `string` | Environment variable containing the secret. | [src/profiles/SecretSource.ts:26](https://github.com/molexxxx/zero-transfer/blob/65cf1053570c0951824d4707643e4ebaf1b50935/src/profiles/SecretSource.ts#L26) |
