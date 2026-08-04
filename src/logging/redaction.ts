@@ -10,7 +10,10 @@
 export const REDACTED = "[REDACTED]";
 
 const SENSITIVE_KEY_PATTERN = /(?:password|passphrase|privatekey|token|secret|username|user)$/i;
-const SECRET_COMMAND_PATTERN = /^(PASS|USER|ACCT)\s+(.+)$/i;
+// The argument group starts with an explicit \S so it cannot overlap the
+// preceding \s+; an overlapping `.+` makes the match quadratic on long runs of
+// whitespace (polynomial ReDoS) because every split point has to be retried.
+const SECRET_COMMAND_PATTERN = /^(PASS|USER|ACCT)\s+(\S.*)$/i;
 const URL_KEY_PATTERN = /(?:url|uri|href)$/i;
 
 /**

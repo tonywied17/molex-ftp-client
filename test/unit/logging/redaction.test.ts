@@ -23,6 +23,17 @@ describe("redaction", () => {
     expect(redactCommand("user deploy")).toBe(`USER ${REDACTED}`);
     expect(redactCommand("ACCT billing")).toBe(`ACCT ${REDACTED}`);
     expect(redactCommand("NOOP")).toBe("NOOP");
+    expect(redactCommand("PASS   spaced-secret")).toBe(`PASS ${REDACTED}`);
+  });
+
+  it("redacts whitespace-padded commands in linear time", () => {
+    // Guards the polynomial-ReDoS fix: trailing whitespace with no argument used
+    // to force quadratic backtracking between the separator and argument groups.
+    const padded = `PASS ${" ".repeat(50_000)}\n\n`;
+    const started = performance.now();
+
+    expect(redactCommand(padded)).toBe(padded);
+    expect(performance.now() - started).toBeLessThan(250);
   });
 
   it("redacts nested objects and arrays", () => {

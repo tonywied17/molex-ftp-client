@@ -10,6 +10,13 @@ import { ParseError } from "../../../errors/ZeroTransferError";
 import type { RemoteEntry, RemoteEntryType } from "../../../types/public";
 import { joinRemotePath } from "../../../utils/path";
 
+// The name group starts with an explicit \S so it cannot overlap the preceding
+// \s+; an overlapping `.+` makes the match quadratic on long runs of whitespace
+// (polynomial ReDoS) because every split point has to be retried. LIST lines are
+// server-controlled and bounded only by MAX_LIST_LINE_BYTES (64 KiB).
+const UNIX_LIST_LINE_PATTERN =
+  /^(\S{10})\s+\d+\s+(\S+)\s+(\S+)\s+(\d+)\s+([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4}|\d{1,2}:\d{2})\s+(\S.*)$/;
+
 const UNIX_LIST_MONTHS = new Map(
   ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"].map(
     (month, index) => [month, index],
@@ -64,10 +71,7 @@ export function parseUnixList(input: string, directory = ".", now = new Date()):
  * @throws {@link ParseError} When the line is not a supported Unix LIST entry.
  */
 export function parseUnixListLine(line: string, directory = ".", now = new Date()): RemoteEntry {
-  const match =
-    /^(\S{10})\s+\d+\s+(\S+)\s+(\S+)\s+(\d+)\s+([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4}|\d{1,2}:\d{2})\s+(.+)$/.exec(
-      line,
-    );
+  const match = UNIX_LIST_LINE_PATTERN.exec(line);
 
   if (match === null) {
     throw new ParseError({

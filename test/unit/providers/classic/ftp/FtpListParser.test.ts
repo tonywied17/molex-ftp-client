@@ -122,6 +122,16 @@ describe("FtpListParser", () => {
     expect(() => parseUnixListLine("not-enough-data")).toThrow(ParseError);
   });
 
+  it("rejects whitespace-padded LIST lines in linear time", () => {
+    // Guards the polynomial-ReDoS fix: a server-controlled line padded with
+    // whitespace used to force quadratic backtracking on the name group.
+    const padded = `-rw-r--r-- 1 deploy staff 5 Apr 27 2026${" ".repeat(50_000)}`;
+    const started = performance.now();
+
+    expect(() => parseUnixListLine(padded)).toThrow(ParseError);
+    expect(performance.now() - started).toBeLessThan(250);
+  });
+
   it("parses valid MLST timestamps and ignores invalid ones", () => {
     expect(parseMlstTimestamp("20260427010203")?.toISOString()).toBe("2026-04-27T01:02:03.000Z");
     expect(parseMlstTimestamp("not-a-date")).toBeUndefined();
