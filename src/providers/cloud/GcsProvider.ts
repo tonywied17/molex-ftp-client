@@ -22,7 +22,7 @@ import {
 } from "../../errors/ZeroTransferError";
 import { resolveSecret } from "../../profiles/SecretSource";
 import type { ConnectionProfile, RemoteEntry, RemoteStat } from "../../types/public";
-import { normalizeRemotePath } from "../../utils/path";
+import { normalizeRemotePath, stripTrailingSlashes } from "../../utils/path";
 import type { TransferProvider } from "../Provider";
 import type { ProviderFactory } from "../ProviderFactory";
 import type {
@@ -142,8 +142,8 @@ export function createGcsProviderFactory(options: GcsProviderOptions): ProviderF
       retryable: false,
     });
   }
-  const apiBaseUrl = (options.apiBaseUrl ?? GCS_JSON_API_BASE).replace(/\/+$/u, "");
-  const uploadBaseUrl = (options.uploadBaseUrl ?? GCS_UPLOAD_API_BASE).replace(/\/+$/u, "");
+  const apiBaseUrl = stripTrailingSlashes(options.apiBaseUrl ?? GCS_JSON_API_BASE);
+  const uploadBaseUrl = stripTrailingSlashes(options.uploadBaseUrl ?? GCS_UPLOAD_API_BASE);
   const multipartEnabled = options.multipart?.enabled ?? true;
   const partSizeBytes = options.multipart?.partSizeBytes ?? DEFAULT_GCS_PART_SIZE;
   const thresholdBytes = options.multipart?.thresholdBytes ?? DEFAULT_GCS_THRESHOLD;
@@ -656,7 +656,7 @@ function prefixToEntry(
   prefix: string,
   parent: string,
 ): RemoteEntry | undefined {
-  const tail = prefixedName.slice(prefix.length).replace(/\/+$/u, "");
+  const tail = stripTrailingSlashes(prefixedName.slice(prefix.length));
   if (tail === "" || tail.includes("/")) return undefined;
   return {
     name: tail,

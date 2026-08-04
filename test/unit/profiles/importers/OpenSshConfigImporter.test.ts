@@ -214,6 +214,24 @@ Host real
     expect(result.profile.host).toBe("h.example.com");
   });
 
+  it("parses CR-only line endings", () => {
+    const entries = parseOpenSshConfig("Host cr\rHostName cr.example.com\rPort 2022\r");
+
+    expect(entries).toHaveLength(1);
+    expect(entries[0]?.patterns).toEqual(["cr"]);
+    expect(entries[0]?.options["hostname"]).toEqual(["cr.example.com"]);
+  });
+
+  it("parses whitespace-padded directives in linear time", () => {
+    // Guards the ReDoS fix: `\s*=?\s*(.*)$` was cubic once a bare CR put a line
+    // terminator out of reach of `$` (8000 padding characters took 61s).
+    const hostile = `Host${" ".repeat(20_000)}\ra\rb`;
+    const started = performance.now();
+
+    expect(() => parseOpenSshConfig(hostile)).not.toThrow();
+    expect(performance.now() - started).toBeLessThan(250);
+  });
+
   it("returns a profile without ssh when no ssh-affecting directives are present", () => {
     const text = `Host h
   HostName h.example.com

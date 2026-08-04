@@ -15,6 +15,7 @@ import {
 } from "../../errors/ZeroTransferError";
 import { redactUrlForLogging } from "../../logging/redaction";
 import type { ConnectionProfile } from "../../types/public";
+import { stripTrailingSlashes } from "../../utils/path";
 
 /** Fetch implementation accepted by web-family providers. */
 export type HttpFetch = (input: string, init?: RequestInit) => Promise<Response>;
@@ -98,7 +99,7 @@ export function buildBaseUrl(
 
 /** Joins a base URL pathname with a normalized remote path. */
 export function resolveUrl(baseUrl: URL, remotePath: string): URL {
-  const trimmedBase = baseUrl.pathname.replace(/\/+$/, "");
+  const trimmedBase = stripTrailingSlashes(baseUrl.pathname);
   const suffix = remotePath === "/" ? "" : remotePath;
   const merged = new URL(baseUrl.toString());
   merged.pathname = `${trimmedBase}${suffix}`;

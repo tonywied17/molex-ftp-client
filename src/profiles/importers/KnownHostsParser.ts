@@ -161,6 +161,11 @@ function globMatch(pattern: string, value: string): boolean {
   return regex.test(value);
 }
 
+// HMAC-SHA1 is fixed by the file format, not a choice: the `|1|` marker on a
+// hashed known_hosts line denotes HMAC-SHA1, so any other digest would fail to
+// match entries written by OpenSSH. This only selects which stored line to
+// compare against; the trust decision is the host key comparison itself, so a
+// collision here surfaces a candidate line rather than authenticating a host.
 function matchesHashedEntry(salt: string, hash: string, host: string, port: number): boolean {
   const saltBuffer = Buffer.from(salt, "base64");
   if (saltBuffer.length === 0) return false;

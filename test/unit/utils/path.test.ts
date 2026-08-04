@@ -5,9 +5,28 @@ import {
   basenameRemotePath,
   joinRemotePath,
   normalizeRemotePath,
+  stripTrailingSlashes,
 } from "../../../src/utils/path";
 
 describe("remote path utilities", () => {
+  it("strips trailing separators", () => {
+    expect(stripTrailingSlashes("https://example.com/base///")).toBe("https://example.com/base");
+    expect(stripTrailingSlashes("https://example.com/base")).toBe("https://example.com/base");
+    expect(stripTrailingSlashes("///")).toBe("");
+    expect(stripTrailingSlashes("")).toBe("");
+    expect(stripTrailingSlashes("a//b//")).toBe("a//b");
+  });
+
+  it("strips trailing separators in linear time", () => {
+    // Guards the ReDoS fix: `replace(/\/+$/, "")` has no start anchor, so it
+    // retried every offset and ran quadratically on a long run of separators.
+    const hostile = `${"/".repeat(200_000)}x`;
+    const started = performance.now();
+
+    expect(stripTrailingSlashes(hostile)).toBe(hostile);
+    expect(performance.now() - started).toBeLessThan(250);
+  });
+
   it("rejects CRLF command-injection characters", () => {
     expect(assertSafeFtpArgument("/safe/file.txt")).toBe("/safe/file.txt");
     expect(() => assertSafeFtpArgument("/bad\r\nDELE /", "remotePath")).toThrow(ConfigurationError);

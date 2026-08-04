@@ -23,7 +23,7 @@ import {
 } from "../../errors/ZeroTransferError";
 import { resolveSecret } from "../../profiles/SecretSource";
 import type { ConnectionProfile, RemoteEntry, RemoteStat } from "../../types/public";
-import { normalizeRemotePath } from "../../utils/path";
+import { normalizeRemotePath, stripTrailingSlashes } from "../../utils/path";
 import type { TransferProvider } from "../Provider";
 import type { ProviderFactory } from "../ProviderFactory";
 import type {
@@ -253,7 +253,7 @@ export function createAzureBlobProviderFactory(options: AzureBlobProviderOptions
 
 function resolveAzureEndpoint(options: AzureBlobProviderOptions): string {
   if (typeof options.endpoint === "string" && options.endpoint !== "") {
-    return options.endpoint.replace(/\/+$/u, "");
+    return stripTrailingSlashes(options.endpoint);
   }
   if (typeof options.account === "string" && options.account !== "") {
     return `https://${options.account}.blob.core.windows.net`;
@@ -828,7 +828,7 @@ function prefixToEntry(
   prefix: string,
   parent: string,
 ): RemoteEntry | undefined {
-  const tail = prefixedName.slice(prefix.length).replace(/\/+$/u, "");
+  const tail = stripTrailingSlashes(prefixedName.slice(prefix.length));
   if (tail === "" || tail.includes("/")) return undefined;
   return {
     name: tail,
@@ -851,7 +851,7 @@ function joinPath(parent: string, name: string): string {
 
 function basenameRemotePath(normalized: string): string {
   if (normalized === "/" || normalized === "") return "";
-  const trimmed = normalized.replace(/\/+$/u, "");
+  const trimmed = stripTrailingSlashes(normalized);
   const idx = trimmed.lastIndexOf("/");
   return idx === -1 ? trimmed : trimmed.slice(idx + 1);
 }

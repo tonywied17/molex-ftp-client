@@ -10,6 +10,7 @@
 import { ConfigurationError } from "../errors/ZeroTransferError";
 
 const UNSAFE_FTP_ARGUMENT_PATTERN = /[\r\n\0]/;
+const SLASH_CHAR_CODE = 0x2f;
 
 /**
  * Validates that an FTP command argument cannot inject additional command lines.
@@ -35,6 +36,34 @@ export function assertSafeFtpArgument(value: string, label = "path"): string {
   }
 
   return value;
+}
+
+/**
+ * Removes any trailing `/` characters from a value.
+ *
+ * @remarks
+ * This exists instead of `replace(/\/+$/, "")` because that regex has no start
+ * anchor: the engine retries the match from every offset, and each retry walks
+ * the whole slash run, so a value ending in many slashes costs quadratic time
+ * (polynomial ReDoS). Scanning backwards from the end is linear.
+ *
+ * @param value - Value whose trailing separators should be dropped.
+ * @returns The value without trailing `/` characters, or `""` when it is all separators.
+ *
+ * @example
+ * ```ts
+ * stripTrailingSlashes("https://example.com/base///"); // "https://example.com/base"
+ * stripTrailingSlashes("///"); // ""
+ * ```
+ */
+export function stripTrailingSlashes(value: string): string {
+  let end = value.length;
+
+  while (end > 0 && value.charCodeAt(end - 1) === SLASH_CHAR_CODE) {
+    end -= 1;
+  }
+
+  return end === value.length ? value : value.slice(0, end);
 }
 
 /**

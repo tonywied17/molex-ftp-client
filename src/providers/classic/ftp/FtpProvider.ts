@@ -51,6 +51,7 @@ import {
   assertSafeFtpArgument,
   basenameRemotePath,
   normalizeRemotePath,
+  stripTrailingSlashes,
 } from "../../../utils/path";
 import { parseMlsdLine, parseUnixListLine } from "./FtpListParser";
 import { FtpResponseParser, type FtpResponse } from "./FtpResponseParser";
@@ -538,7 +539,7 @@ class FtpFileSystem implements RemoteFileSystem {
       if (entry.name === "." || entry.name === "..") continue;
       const childPath = entry.path.startsWith("/")
         ? entry.path
-        : normalizeFtpPath(`${remotePath.replace(/\/+$/, "")}/${entry.name}`);
+        : normalizeFtpPath(`${stripTrailingSlashes(remotePath)}/${entry.name}`);
       if (entry.type === "directory") {
         await this.removeDirectoryRecursive(childPath);
       } else {

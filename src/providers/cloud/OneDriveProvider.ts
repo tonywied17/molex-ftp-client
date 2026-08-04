@@ -25,7 +25,7 @@ import {
 } from "../../errors/ZeroTransferError";
 import { resolveSecret } from "../../profiles/SecretSource";
 import type { ConnectionProfile, RemoteEntry, RemoteStat } from "../../types/public";
-import { normalizeRemotePath } from "../../utils/path";
+import { normalizeRemotePath, stripTrailingSlashes } from "../../utils/path";
 import type { TransferProvider } from "../Provider";
 import type { ProviderFactory } from "../ProviderFactory";
 import type {
@@ -139,7 +139,7 @@ export function createOneDriveProviderFactory(
 ): ProviderFactory {
   const id: ProviderId = options.id ?? "one-drive";
   const fetchImpl = options.fetch ?? globalThis.fetch;
-  const driveBaseUrl = (options.driveBaseUrl ?? ONEDRIVE_DRIVE_BASE).replace(/\/+$/u, "");
+  const driveBaseUrl = stripTrailingSlashes(options.driveBaseUrl ?? ONEDRIVE_DRIVE_BASE);
 
   if (typeof fetchImpl !== "function") {
     throw new ConfigurationError({

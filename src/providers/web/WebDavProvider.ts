@@ -20,7 +20,7 @@ import {
 import { redactUrlForLogging } from "../../logging/redaction";
 import { resolveSecret } from "../../profiles/SecretSource";
 import type { ConnectionProfile, RemoteEntry, RemoteStat } from "../../types/public";
-import { basenameRemotePath, normalizeRemotePath } from "../../utils/path";
+import { basenameRemotePath, normalizeRemotePath, stripTrailingSlashes } from "../../utils/path";
 import type { TransferProvider } from "../Provider";
 import type { ProviderFactory } from "../ProviderFactory";
 import type {
@@ -538,7 +538,7 @@ function decodeHref(rawHref: string, baseUrl: URL): string {
       pathname = decoded;
     }
   }
-  const basePathname = baseUrl.pathname.replace(/\/+$/, "");
+  const basePathname = stripTrailingSlashes(baseUrl.pathname);
   if (basePathname.length > 0 && pathname.startsWith(basePathname)) {
     pathname = pathname.slice(basePathname.length);
   }

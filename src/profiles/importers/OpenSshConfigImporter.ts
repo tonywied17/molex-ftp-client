@@ -30,11 +30,22 @@ export function parseOpenSshConfig(text: string): OpenSshConfigEntry[] {
   const entries: OpenSshConfigEntry[] = [];
   let current: { patterns: string[]; options: Record<string, string[]> } | undefined;
   let skipping = false;
-  const lines = text.split(/\r?\n/);
+  // Split on bare CR as well: a CR-only file otherwise leaves line terminators
+  // inside each "line", which is what let the directive regex below backtrack.
+  const lines = text.split(/\r\n|[\r\n]/);
   for (const rawLine of lines) {
-    const line = rawLine.replace(/#.*$/, "").trim();
+    // indexOf rather than /#.*$/: `.` excludes CR, so a bare-CR line (which the
+    // \r?\n split leaves intact) makes that regex retry every `#` offset and run
+    // in quadratic time.
+    const commentIndex = rawLine.indexOf("#");
+    const line = (commentIndex === -1 ? rawLine : rawLine.slice(0, commentIndex)).trim();
     if (line === "") continue;
-    const match = line.match(/^([A-Za-z][A-Za-z0-9_-]*)\s*=?\s*(.*)$/);
+    // Two things keep this linear. The `=` separator is folded into one optional
+    // group so the surrounding whitespace runs cannot be split two independent
+    // ways, and the value class is `[\s\S]` so it always reaches `$`. The former
+    // `\s*=?\s*(.*)$` was cubic once a line terminator made `$` unreachable:
+    // 8000 padding characters took 61s.
+    const match = line.match(/^([A-Za-z][A-Za-z0-9_-]*)(?:\s*=)?\s*([\s\S]*)$/);
     if (!match) continue;
     const [, keywordRaw, valueRaw] = match;
     if (keywordRaw === undefined || valueRaw === undefined) continue;
