@@ -4,7 +4,7 @@ import { EventEmitter } from "events";
 // src/logging/redaction.ts
 var REDACTED = "[REDACTED]";
 var SENSITIVE_KEY_PATTERN = /(?:password|passphrase|privatekey|token|secret|username|user)$/i;
-var SECRET_COMMAND_PATTERN = /^(PASS|USER|ACCT)\s+(.+)$/i;
+var SECRET_COMMAND_PATTERN = /^(PASS|USER|ACCT)\s+(\S.*)$/i;
 var URL_KEY_PATTERN = /(?:url|uri|href)$/i;
 function isSensitiveKey(key) {
   return SENSITIVE_KEY_PATTERN.test(key.replace(/[_-]/g, ""));
@@ -2469,6 +2469,7 @@ import path from "path";
 
 // src/utils/path.ts
 var UNSAFE_FTP_ARGUMENT_PATTERN = /[\r\n\0]/;
+var SLASH_CHAR_CODE = 47;
 function assertSafeFtpArgument(value, label = "path") {
   if (UNSAFE_FTP_ARGUMENT_PATTERN.test(value)) {
     throw new ConfigurationError({
@@ -2480,6 +2481,13 @@ function assertSafeFtpArgument(value, label = "path") {
     });
   }
   return value;
+}
+function stripTrailingSlashes(value) {
+  let end = value.length;
+  while (end > 0 && value.charCodeAt(end - 1) === SLASH_CHAR_CODE) {
+    end -= 1;
+  }
+  return end === value.length ? value : value.slice(0, end);
 }
 function normalizeRemotePath(input) {
   assertSafeFtpArgument(input);
@@ -3606,11 +3614,12 @@ function parseOpenSshConfig(text) {
   const entries = [];
   let current;
   let skipping = false;
-  const lines = text.split(/\r?\n/);
+  const lines = text.split(/\r\n|[\r\n]/);
   for (const rawLine of lines) {
-    const line = rawLine.replace(/#.*$/, "").trim();
+    const commentIndex = rawLine.indexOf("#");
+    const line = (commentIndex === -1 ? rawLine : rawLine.slice(0, commentIndex)).trim();
     if (line === "") continue;
-    const match = line.match(/^([A-Za-z][A-Za-z0-9_-]*)\s*=?\s*(.*)$/);
+    const match = line.match(/^([A-Za-z][A-Za-z0-9_-]*)(?:\s*=)?\s*([\s\S]*)$/);
     if (!match) continue;
     const [, keywordRaw, valueRaw] = match;
     if (keywordRaw === void 0 || valueRaw === void 0) continue;
@@ -5559,7 +5568,7 @@ function buildBaseUrl(profile, options) {
   }
 }
 function resolveUrl(baseUrl, remotePath) {
-  const trimmedBase = baseUrl.pathname.replace(/\/+$/, "");
+  const trimmedBase = stripTrailingSlashes(baseUrl.pathname);
   const suffix = remotePath === "/" ? "" : remotePath;
   const merged = new URL(baseUrl.toString());
   merged.pathname = `${trimmedBase}${suffix}`;
@@ -6104,7 +6113,7 @@ function decodeHref(rawHref, baseUrl) {
       pathname = decoded;
     }
   }
-  const basePathname = baseUrl.pathname.replace(/\/+$/, "");
+  const basePathname = stripTrailingSlashes(baseUrl.pathname);
   if (basePathname.length > 0 && pathname.startsWith(basePathname)) {
     pathname = pathname.slice(basePathname.length);
   }

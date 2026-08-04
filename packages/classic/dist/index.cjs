@@ -146,7 +146,7 @@ var import_node_events = require("events");
 // src/logging/redaction.ts
 var REDACTED = "[REDACTED]";
 var SENSITIVE_KEY_PATTERN = /(?:password|passphrase|privatekey|token|secret|username|user)$/i;
-var SECRET_COMMAND_PATTERN = /^(PASS|USER|ACCT)\s+(.+)$/i;
+var SECRET_COMMAND_PATTERN = /^(PASS|USER|ACCT)\s+(\S.*)$/i;
 var URL_KEY_PATTERN = /(?:url|uri|href)$/i;
 function isSensitiveKey(key) {
   return SENSITIVE_KEY_PATTERN.test(key.replace(/[_-]/g, ""));
@@ -2605,6 +2605,7 @@ var import_node_path3 = __toESM(require("path"));
 
 // src/utils/path.ts
 var UNSAFE_FTP_ARGUMENT_PATTERN = /[\r\n\0]/;
+var SLASH_CHAR_CODE = 47;
 function assertSafeFtpArgument(value, label = "path") {
   if (UNSAFE_FTP_ARGUMENT_PATTERN.test(value)) {
     throw new ConfigurationError({
@@ -2616,6 +2617,13 @@ function assertSafeFtpArgument(value, label = "path") {
     });
   }
   return value;
+}
+function stripTrailingSlashes(value) {
+  let end = value.length;
+  while (end > 0 && value.charCodeAt(end - 1) === SLASH_CHAR_CODE) {
+    end -= 1;
+  }
+  return end === value.length ? value : value.slice(0, end);
 }
 function normalizeRemotePath(input) {
   assertSafeFtpArgument(input);
@@ -3742,11 +3750,12 @@ function parseOpenSshConfig(text) {
   const entries = [];
   let current;
   let skipping = false;
-  const lines = text.split(/\r?\n/);
+  const lines = text.split(/\r\n|[\r\n]/);
   for (const rawLine of lines) {
-    const line = rawLine.replace(/#.*$/, "").trim();
+    const commentIndex = rawLine.indexOf("#");
+    const line = (commentIndex === -1 ? rawLine : rawLine.slice(0, commentIndex)).trim();
     if (line === "") continue;
-    const match = line.match(/^([A-Za-z][A-Za-z0-9_-]*)\s*=?\s*(.*)$/);
+    const match = line.match(/^([A-Za-z][A-Za-z0-9_-]*)(?:\s*=)?\s*([\s\S]*)$/);
     if (!match) continue;
     const [, keywordRaw, valueRaw] = match;
     if (keywordRaw === void 0 || valueRaw === void 0) continue;
@@ -5654,6 +5663,7 @@ var import_node_net = require("net");
 var import_node_tls = require("tls");
 
 // src/providers/classic/ftp/FtpListParser.ts
+var UNIX_LIST_LINE_PATTERN = /^(\S{10})\s+\d+\s+(\S+)\s+(\S+)\s+(\d+)\s+([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4}|\d{1,2}:\d{2})\s+(\S.*)$/;
 var UNIX_LIST_MONTHS = new Map(
   ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"].map(
     (month, index) => [month, index]
@@ -5666,9 +5676,7 @@ function parseUnixList(input, directory = ".", now = /* @__PURE__ */ new Date())
   return input.split(/\r?\n/).map((line) => line.trimEnd()).filter((line) => line.length > 0 && !line.toLowerCase().startsWith("total ")).map((line) => parseUnixListLine(line, directory, now)).filter((entry) => entry.name !== "." && entry.name !== "..");
 }
 function parseUnixListLine(line, directory = ".", now = /* @__PURE__ */ new Date()) {
-  const match = /^(\S{10})\s+\d+\s+(\S+)\s+(\S+)\s+(\d+)\s+([A-Za-z]{3})\s+(\d{1,2})\s+(\d{4}|\d{1,2}:\d{2})\s+(.+)$/.exec(
-    line
-  );
+  const match = UNIX_LIST_LINE_PATTERN.exec(line);
   if (match === null) {
     throw new ParseError({
       details: { line },
@@ -6269,7 +6277,7 @@ var FtpFileSystem = class {
     }
     for (const entry of entries) {
       if (entry.name === "." || entry.name === "..") continue;
-      const childPath = entry.path.startsWith("/") ? entry.path : normalizeFtpPath(`${remotePath.replace(/\/+$/, "")}/${entry.name}`);
+      const childPath = entry.path.startsWith("/") ? entry.path : normalizeFtpPath(`${stripTrailingSlashes(remotePath)}/${entry.name}`);
       if (entry.type === "directory") {
         await this.removeDirectoryRecursive(childPath);
       } else {

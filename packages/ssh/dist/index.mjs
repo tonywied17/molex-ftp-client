@@ -4,7 +4,7 @@ import { EventEmitter } from "events";
 // src/logging/redaction.ts
 var REDACTED = "[REDACTED]";
 var SENSITIVE_KEY_PATTERN = /(?:password|passphrase|privatekey|token|secret|username|user)$/i;
-var SECRET_COMMAND_PATTERN = /^(PASS|USER|ACCT)\s+(.+)$/i;
+var SECRET_COMMAND_PATTERN = /^(PASS|USER|ACCT)\s+(\S.*)$/i;
 var URL_KEY_PATTERN = /(?:url|uri|href)$/i;
 function isSensitiveKey(key) {
   return SENSITIVE_KEY_PATTERN.test(key.replace(/[_-]/g, ""));
@@ -3606,11 +3606,12 @@ function parseOpenSshConfig(text) {
   const entries = [];
   let current;
   let skipping = false;
-  const lines = text.split(/\r?\n/);
+  const lines = text.split(/\r\n|[\r\n]/);
   for (const rawLine of lines) {
-    const line = rawLine.replace(/#.*$/, "").trim();
+    const commentIndex = rawLine.indexOf("#");
+    const line = (commentIndex === -1 ? rawLine : rawLine.slice(0, commentIndex)).trim();
     if (line === "") continue;
-    const match = line.match(/^([A-Za-z][A-Za-z0-9_-]*)\s*=?\s*(.*)$/);
+    const match = line.match(/^([A-Za-z][A-Za-z0-9_-]*)(?:\s*=)?\s*([\s\S]*)$/);
     if (!match) continue;
     const [, keywordRaw, valueRaw] = match;
     if (keywordRaw === void 0 || valueRaw === void 0) continue;
