@@ -8,15 +8,15 @@
 </p>
 
 <p align="center">
-  <a href="https://www.npmjs.com/package/@zero-transfer/sdk"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-sdk-name-ztransfer.svg?v=b4a11882" alt="@zero-transfer/sdk"></a>
-  <a href="https://www.npmjs.com/package/@zero-transfer/sdk"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-npm-ztransfer.svg?v=dcdd2f85" alt="npm version"></a>
-  <a href="https://www.npmjs.com/package/@zero-transfer/sdk"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-dm-ztransfer.svg?v=95e529bf" alt="npm downloads"></a>
-  <a href="https://github.com/molexxxx/zero-transfer/actions/workflows/ci.yml"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-ci-ztransfer.svg?v=0f1377d5" alt="CI"></a>
-  <a href="https://github.com/molexxxx/zero-transfer/actions/workflows/ci.yml"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-tests-ztransfer.svg?v=bce5671a" alt="Tests"></a>
-  <a href="https://github.com/molexxxx/zero-transfer/actions/workflows/ci.yml"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-coverage-ztransfer.svg?v=c9d77a5c" alt="Coverage"></a>
-  <a href="https://molexxxx.github.io/zero-transfer/"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-docs-ztransfer.svg?v=6f97408c" alt="Docs"></a>
-  <a href="https://opensource.org/licenses/MIT"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-license-ztransfer.svg?v=a2de3872" alt="License"></a>
-  <a href="https://nodejs.org"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-node-ztransfer.svg?v=24b48ece" alt="Node.js"></a>
+  <a href="https://www.npmjs.com/package/@zero-transfer/sdk"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-sdk-name-ztransfer.svg?v=2f2378d4" alt="@zero-transfer/sdk"></a>
+  <a href="https://www.npmjs.com/package/@zero-transfer/sdk"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-npm-ztransfer.svg?v=2f5e1bc0" alt="npm version"></a>
+  <a href="https://www.npmjs.com/package/@zero-transfer/sdk"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-downloads-ztransfer.svg?v=211d45a5" alt="npm downloads"></a>
+  <a href="https://github.com/molexxxx/zero-transfer/actions/workflows/ci.yml"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-ci-ztransfer.svg?v=bdcf7921" alt="CI"></a>
+  <a href="https://github.com/molexxxx/zero-transfer/actions/workflows/ci.yml"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-tests-ztransfer.svg?v=29d0523f" alt="Tests"></a>
+  <a href="https://github.com/molexxxx/zero-transfer/actions/workflows/ci.yml"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-coverage-ztransfer.svg?v=d44e07f9" alt="Coverage"></a>
+  <a href="https://molexxxx.github.io/zero-transfer/"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-docs-ztransfer.svg?v=30bfc104" alt="Docs"></a>
+  <a href="https://opensource.org/licenses/MIT"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-license-ztransfer.svg?v=81f02eef" alt="License"></a>
+  <a href="https://nodejs.org"><img src="https://raw.githubusercontent.com/molexxxx/molexxxx/main/.github/badges/zero-transfer-node-ztransfer.svg?v=7e53df2a" alt="Node.js"></a>
 </p>
 
 ZeroTransfer is a unified, TypeScript-first file transfer SDK for Node.js. One typed API speaks to every backend you actually deploy against - classic protocols, web endpoints, object storage, cloud drives, and local disks - with streaming, resume, verification, dry-run plans, MFT-style scheduling, audit logs, and webhook delivery built in.
